@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CAPSTONE JS - Nguyễn Thiên Ân</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../assets/css/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="topbar d-flex justify-content-between align-items-center">
+        <div class="topbar__select">
+          <label class="" for="selectType">Filter:</label>
+          <select onchange="selectType()" class="custom-select" id="selectType">
+            <option selected value="all">All</option>
+            <option value="iphone">Iphone</option>
+            <option value="samsung">Samsung</option>
+          </select>
+        </div>
+
+        <!-- Button trigger modal -->
+        <div
+          class="topbar__cart"
+          data-toggle="modal"
+          data-target="#cart__modal"
+        >
+          <i class="fa fa-shopping-cart"></i>
+          <div class="cart-quantity" id="cart-quantity"></div>
+        </div>
+      </div>
+      <div class="cardList row" id="cardList"></div>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="cart__modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <h5 class="m-5 text-center text-primary" id="noneProduct">
+            Looks Like You Haven't Added Any Product In The Cart
+          </h5>
+          <div class="modal-body" id="cart__modal-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <td>Image</td>
+                  <td>Name</td>
+                  <td>Quantity</td>
+                  <td>Price</td>
+                  <td></td>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <h4 class="mr-5 text-primary">
+              total: $
+              <span id="totalPrice"></span>
+            </h4>
+            <button
+              data-toggle="modal"
+              data-target="#purchase__modal"
+              type="button"
+              class="btn btn-primary"
+              data-dismiss="modal"
+              id="btn-purchase"
+            >
+              Purchase
+            </button>
+            <button
+              id="btn-clearcart"
+              type="button"
+              class="btn btn-danger"
+              onclick="handleClearCart()"
+            >
+              Clear Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--  purchase modal -->
+
+    <div
+      class="modal fade"
+      id="purchase__modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">PURCHASE</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="purchase__modal-body">
+            <div class="purchase__modal-body-content"></div>
+            <div
+              class="text-primary d-flex justify-content-between display-5 m-3"
+            >
+              <h5>total amount to be paid:</h5>
+              <h5>$ <span id="purchase__total">0</span></h5>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+              data-toggle="modal"
+              data-target="#cart__modal"
+            >
+              Cancel
+            </button>
+            <button
+              data-toggle="modal"
+              data-target="#done__modal"
+              data-dismiss="modal"
+              type="button"
+              class="btn btn-primary"
+              onclick="handleOrder()"
+            >
+              Order Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- done modal -->
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="done__modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="text-primary modal-title" id="exampleModalLabel">
+              Your order has been placed
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="done__modal-body">
+            <h6 class="m-3 text-primary">
+              Your order-id is : <span id="done__id"></span>
+            </h6>
+            <h6 class="m-3 text-primary">
+              your order will be delivered to you in 3-5 working days
+            </h6>
+            <h6 class="m-3 text-primary">
+              you can pay by card or any online transaction method after the
+              products have been dilivered to you
+            </h6>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">
+              OK
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+      integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script type="module" src="../controllers/main.js"></script>
+  </body>
+</html>

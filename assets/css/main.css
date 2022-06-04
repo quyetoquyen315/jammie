@@ -1,0 +1,153 @@
+.topbar {
+    height: 60px;
+}
+.topbar__select {
+    min-width: 300px;
+    display: flex;
+}
+.topbar__select label {
+    min-width: 56px;
+    line-height: 38px;
+    margin: 0;
+}
+.topbar__cart {
+    position: relative;
+}
+.topbar__cart:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+.topbar__cart i {
+    color: green;
+    font-size: 30px;
+}
+
+#cart-quantity {
+    position: absolute;
+    top: -20%;
+    right: -20%;
+    font-weight: bold;
+    background-color: red;
+    color: white;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 10px;
+    display: none;
+
+}
+/* -------------- */
+.cardList {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    padding: 100px 0;
+    min-height: 800px;
+}
+
+.card {
+    margin: 10px;
+    position: relative;
+    height: 340px;
+    width: 240px;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 7px 5px -5px #4d4b4b;
+    transition: all 0.5s;
+    color: black;
+    margin-top: 60px;
+    margin-bottom: 50px;
+}
+.card:hover {
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
+    height: 540px;
+    width: 300px;
+    transform: translateY(-100px);
+}
+.card:hover .card__details {
+    height: 250px;
+}
+
+.card__top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 16px;
+}
+.card__top i {
+    font-size: 18px;
+    color: green;
+}
+.card__top span {
+    color: green;
+    font-size: 14px;
+    font-style: italic;
+}
+.card__img {
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+.card__img img {
+    width: 100%;
+    align-self: center;
+}
+.card__details {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    background-color: pink;
+    border-radius: 20px;
+    flex-direction: column;
+    padding: 0 16px 16px;
+    transition: all 0.5s;
+
+}
+.card__details .product-name {
+    text-align: center;
+    line-height: 50px;
+    margin: 0;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+    font-weight: bold;
+    color: #4d4b4b;
+}
+.card__details .purchase {
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+}
+.card__details .product-description p {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+    padding: 0;
+}
+.card__details .product-description p.slogan {
+    font-style: italic;
+    font-weight: bold;
+    margin: 5px auto;
+}
+.card__details .product-price {
+    font-size: 20px;
+    line-height: 40px;
+    color: green;
+    font-weight: bolder;
+}
+
+
+/* cart modal */
+@media (min-width: 576px) {
+    .modal-dialog {
+        min-width: 800px;   
+        margin: 1.75rem auto;
+    }
+}
