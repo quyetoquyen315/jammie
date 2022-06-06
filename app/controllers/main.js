@@ -10,6 +10,13 @@ const CART_LOCALSTORAGE = "CART_LOCALSTORAGE";
 const BASE_URL =
   "https://6271e18325fed8fcb5ec0cfb.mockapi.io/capstonejsproducts";
 
+const turnOnLoading = function () {
+  document.getElementById("loading").style.display = "flex";
+};
+const turnOffLoading = function () {
+  document.getElementById("loading").style.display = "none";
+};
+
 const saveLocalStorage = () => {
   let cartJson = JSON.stringify(cart);
   localStorage.setItem(CART_LOCALSTORAGE, cartJson);
@@ -31,8 +38,10 @@ if (cart.length) {
 }
 
 const getProductList = async () => {
+  turnOnLoading();
   let result = await axios.get(BASE_URL);
   console.log("getProductList:", result.data);
+  turnOffLoading();
   return result.data;
 };
 
@@ -68,7 +77,7 @@ const renderProductList = (list) => {
           <img
             class="product-img"
             src="${product.img}"
-            alt=""  
+            alt="img"  
           />
         </div>
         <div class="card__details">
