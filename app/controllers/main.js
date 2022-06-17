@@ -27,7 +27,7 @@ let cartJson = localStorage.getItem(CART_LOCALSTORAGE);
 //gán dữ liệu cho array gốc và render lại giao diện
 if (cartJson) {
   cart = JSON.parse(cartJson);
-  console.log("cart: ", cart);
+  // console.log("cart: ", cart);
 }
 
 if (cart.length) {
@@ -40,7 +40,7 @@ if (cart.length) {
 const getProductList = async () => {
   turnOnLoading();
   let result = await axios.get(BASE_URL);
-  console.log("getProductList:", result.data);
+  // console.log("getProductList:", result.data);
   turnOffLoading();
   return result.data;
 };
