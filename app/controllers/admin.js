@@ -175,18 +175,17 @@ document.getElementById("btn-add-product").onclick = function () {
   document.getElementById("btn-add").style.display = "block";
   document.getElementById("btn-update").style.display = "none";
   document.getElementById("idSP").style.display = "none";
+  document.getElementById("name").value = "";
+  document.getElementById("price").value = "";
+  document.getElementById("screen").value = "";
+  document.getElementById("backCamera").value = "";
+  document.getElementById("frontCamera").value = "";
+  document.getElementById("img").value = "";
+  document.getElementById("desc").value = "";
+  document.getElementById("type").value = "";
 };
 
 const handleAddProduct = async () => {
-  // let name = document.getElementById("name").value;
-  // let price = document.getElementById("price").value;
-  // let screen = document.getElementById("screen").value;
-  // let backCamera = document.getElementById("backCamera").value;
-  // let frontCamera = document.getElementById("frontCamera").value;
-  // let img = document.getElementById("img").value;
-  // let desc = document.getElementById("desc").value;
-  // let type = document.getElementById("type").value;
-
   let isValid = true;
 
   let isValidName = validatorSV.checkEmpty(
