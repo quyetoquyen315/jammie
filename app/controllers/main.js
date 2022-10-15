@@ -8,7 +8,7 @@ let ProductList = [];
 let cart = [];
 const CART_LOCALSTORAGE = "CART_LOCALSTORAGE";
 const BASE_URL =
-  "https://6271e18325fed8fcb5ec0cfb.mockapi.io/capstonejsproducts";
+  "https://6271e18325fed8fcb5ec0cfb.mockapi.io/shop";
 
 const turnOnLoading = function () {
   document.getElementById("loading").style.display = "flex";
@@ -53,12 +53,10 @@ const mapProductList = async () => {
       product.id,
       product.name,
       product.price,
-      product.screen,
-      product.backCamera,
-      product.frontCamera,
+      product.chatLieu,
+      product.mauSac,
+      product.kieuDang,
       product.img,
-      product.desc,
-      product.type
     );
   });
 };
@@ -71,28 +69,24 @@ const renderProductList = (list) => {
       <div class="card">
         <div class="card__top">
           <i class="fa fa-award"></i>
-          <span class="stock">In Stock</span>
+          <span class="stock">Còn hàng</span>
         </div>
         <div class="card__img">
           <img
             class="product-img"
             src="${product.img}"
-            alt="img"  
+            alt="img"
           />
         </div>
         <div class="card__details">
           <h6 class="product-name">${product.name}</h6>
           <div class="product-description">
-            <p class="slogan">
-            ${product.desc}
-            </p>
-            <p>Type: ${product.type}</p>
-            <p>Screen: ${product.screen}</p>
-            <p>Front Camera: ${product.frontCamera}</p>
-            <p>Back Camera: ${product.backCamera}</p>
+            <p>Chất liệu: ${product.chatLieu}</p>
+            <p>Màu sắc: ${product.mauSac}</p>
+            <p>kiểu dáng: ${product.kieuDang}</p>
           </div>
           <div class="purchase">
-            <span class="product-price">$${product.price}</span>
+            <span class="product-price">${product.price} vnd</span>
             <button onclick="addtoCart(${product.id})" class="btn btn-success">Add to Card</button>
           </div>
         </div>
@@ -146,7 +140,7 @@ const renderCartList = (list) => {
     let productTr = `
       <tr>
         <td>
-          <img width="100" height="100" src=${product.product.img} alt="img" />
+          <img width="130" height="100" style="object-fit: cover" src=${product.product.img} alt="img" />
         </td>
         <td>${product.product.name}</td>
         <td>
@@ -154,7 +148,7 @@ const renderCartList = (list) => {
           ${product.quantity}
           <button onclick="handleChangeQuantity('${product.product.id}', 1)" class="mx-2 btn btn-success">+</button>
         </td>
-        <td>$ ${product.product.price}</td>
+        <td>${product.product.price} vnd</td>
         <td>
           <button onclick="handleDeleteProduct('${product.product.id}')" class="btn btn-danger">Remove</button>
         </td>
@@ -198,7 +192,7 @@ const renderPurchaseList = (list) => {
         <div>
           ${product.quantity} x ${product.product.name}
         </div>
-        <div>$ ${product.product.price * product.quantity}</div>
+        <div>${product.product.price * product.quantity} vnd</div>
       </div>
     `;
     contentHMTL += productTr;

@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="py-4 container">
-      <h2 class="text-center text-primary">CAPSTONE JS - ADMIN</h2>
+      <h2 class="text-center text-primary">MYSHOP - ADMIN</h2>
       <div class="my-4 d-flex justify-content-between">
         <button
           id="btn-add-product"
@@ -34,10 +34,10 @@
           class="btn btn-success"
         >
           <span style="font-size: 24px; line-height: 24px">+</span>
-          Add product
+          Thêm sản phẩm
         </button>
 
-        <a href="./index.html">Go to User page</a>
+        <!-- <a href="./index.html">Go to User page</a> -->
 
         <!-- <div class="input-group m-0" style="width: 360px">
           <input
@@ -63,11 +63,13 @@
         <thead>
           <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>Price</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
             <th>Image URL</th>
-            <th>Type</th>
-            <th>Action</th>
+            <th>Chất liệu</th>
+            <th>Màu sắc</th>
+            <th>Kiểu dáng</th>
+            <th>Thao tác</th>
           </tr>
         </thead>
         <tbody id="table-body"></tbody>
@@ -111,7 +113,7 @@
               />
             </div> -->
             <div class="form-group">
-              <label for="">Name</label>
+              <label for="">Tên sản phẩm</label>
               <input
                 type="text"
                 class="form-control"
@@ -123,7 +125,7 @@
               <span class="text-danger" id="span-name"></span>
             </div>
             <div class="form-group">
-              <label for="">Price</label>
+              <label for="">Giá</label>
               <input
                 type="text"
                 class="form-control"
@@ -136,64 +138,52 @@
             </div>
 
             <div class="form-group">
-              <label for="">Screen</label>
-              <input
-                type="text"
-                class="form-control"
-                name=""
-                id="screen"
-                aria-describedby="helpId"
-                placeholder="screen"
-              />
-              <span class="text-danger" id="span-screen"></span>
-            </div>
-            <div class="form-group">
-              <label for="">Back Camera</label>
-              <input
-                type="text"
-                class="form-control"
-                name=""
-                id="backCamera"
-                aria-describedby="helpId"
-                placeholder="backCamera"
-              />
-              <span class="text-danger" id="span-backCamera"></span>
-            </div>
-            <div class="form-group">
-              <label for="">Front Camera</label>
-              <input
-                type="text"
-                class="form-control"
-                name=""
-                id="frontCamera"
-                aria-describedby="helpId"
-                placeholder="frontCamera"
-              />
-              <span class="text-danger" id="span-frontCamera"></span>
-            </div>
-            <div class="form-group">
-              <label for="">Img</label>
+              <label for="">Image URL</label>
               <input
                 type="text"
                 class="form-control"
                 name=""
                 id="img"
                 aria-describedby="helpId"
-                placeholder="img"
+                placeholder="img url"
               />
               <span class="text-danger" id="span-img"></span>
             </div>
             <div class="form-group">
-              <label for="">Description</label>
+              <label for="">Chất liệu</label>
               <input
                 type="text"
                 class="form-control"
                 name=""
-                id="desc"
+                id="chatLieu"
                 aria-describedby="helpId"
-                placeholder="Description"
+                placeholder="Chất liệu"
               />
-              <span class="text-danger" id="span-desc"></span>
+              <span class="text-danger" id="span-chatLieu"></span>
+            </div>
+            <div class="form-group">
+              <label for="">Màu sắc</label>
+              <input
+                type="text"
+                class="form-control"
+                name=""
+                id="mauSac"
+                aria-describedby="helpId"
+                placeholder="Màu sắc"
+              />
+              <span class="text-danger" id="span-mauSac"></span>
+            </div>
+            <div class="form-group">
+              <label for="">Kiểu dáng</label>
+              <input
+                type="text"
+                class="form-control"
+                name=""
+                id="kieuDang"
+                aria-describedby="helpId"
+                placeholder="Kiểu dáng"
+              />
+              <span class="text-danger" id="span-kieuDang"></span>
             </div>
 
             <!-- <div class="form-group">
@@ -209,7 +199,7 @@
               <span class="text-danger" id="span-type"></span>
             </div> -->
 
-            <div class="">
+            <!-- <div class="">
               <label class="" for="type">Type</label>
               <select class="custom-select" id="type">
                 <option value="" selected>Select</option>
@@ -217,7 +207,7 @@
                 <option value="Samsung">Samsung</option>
               </select>
               <span class="text-danger" id="span-type"></span>
-            </div>
+            </div> -->
           </div>
           <div class="modal-footer">
             <button

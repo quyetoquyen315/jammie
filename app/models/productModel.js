@@ -13,22 +13,18 @@ export const Product = function (
   _id,
   _name,
   _price,
-  _screen,
-  _backCamera,
-  _frontCamera,
+  _chatLieu,
+  _mauSac,
+  _kieuDang,
   _img,
-  _desc,
-  _type
 ) {
   this.id = _id;
   this.name = _name;
   this.price = _price;
-  this.screen = _screen;
-  this.backCamera = _backCamera;
-  this.frontCamera = _frontCamera;
+  this.chatLieu = _chatLieu;
+  this.mauSac = _mauSac;
+  this.kieuDang = _kieuDang;
   this.img = _img;
-  this.desc = _desc;
-  this.type = _type;
 };
 
 export const CartItem = function (_product, _quantity) {

@@ -1,5 +1,7 @@
 .topbar {
-    height: 60px;
+    height: 68px;
+    padding: 0 80px;
+    border-bottom: 1px solid gray;
 }
 .topbar__select {
     min-width: 300px;
@@ -50,7 +52,8 @@
 .card {
     margin: 10px;
     position: relative;
-    height: 340px;
+    /* height: 340px; */
+    height: 290px;
     width: 240px;
     background-color: white;
     border-radius: 20px;
@@ -63,12 +66,12 @@
 }
 .card:hover {
     box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 15px;
-    height: 540px;
+    height: 440px;
     width: 300px;
     transform: translateY(-100px);
 }
 .card:hover .card__details {
-    height: 250px;
+    height: 200px;
 }
 
 .card__top {
@@ -88,13 +91,15 @@
 }
 .card__img {
     height: 200px;
-    width: 200px;
-    margin: 0 auto;
+    width: 100%;
+    /* margin: 0 auto; */
     left: 0;
     right: 0;
 }
 .card__img img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     align-self: center;
 }
 .card__details {
