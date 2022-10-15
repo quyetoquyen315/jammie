@@ -87,7 +87,7 @@ const renderProductList = (list) => {
           </div>
           <div class="purchase">
             <span class="product-price">${product.price} vnd</span>
-            <button onclick="addtoCart(${product.id})" class="btn btn-success">Add to Card</button>
+            <button onclick="addtoCart(${product.id})" class="btn btn-success">Thêm vào giỏ</button>
           </div>
         </div>
       </div>
@@ -150,7 +150,7 @@ const renderCartList = (list) => {
         </td>
         <td>${product.product.price} vnd</td>
         <td>
-          <button onclick="handleDeleteProduct('${product.product.id}')" class="btn btn-danger">Remove</button>
+          <button onclick="handleDeleteProduct('${product.product.id}')" class="btn btn-danger">Xóa khỏi giỏ hàng</button>
         </td>
       </tr>
     `;
