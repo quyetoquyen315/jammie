@@ -1,12 +1,10 @@
 .topbar {
-    height: 68px;
+    height: 100px;
     padding: 0 140px;
     /* border-bottom: 1px solid gray; */
     position: relative;
 }
 .topbar__img {
-    position: relative;
-    top: 50px;
 }
 .topbar__select {
     min-width: 300px;
